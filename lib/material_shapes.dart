@@ -2,6 +2,7 @@
 /// transformations and path conversion utilities for rendering.
 library;
 
+export 'src/material_shape_border.dart' show MaterialShapeBorder;
 export 'src/material_shapes.dart' show MaterialShapes;
 export 'src/shapes/shapes.dart'
     show
