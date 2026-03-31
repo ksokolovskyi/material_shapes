@@ -240,6 +240,32 @@ abstract final class MaterialShapes {
     mirroring: true,
   ).normalized();
 
+  /// A hexagon shape (6-sided regular polygon).
+  static final hexagon =
+      RoundedPolygon.fromVerticesNum(6, rounding: _cornerRound20)
+          .transformed(
+            (Matrix4.identity()..rotateZ(_negative90Radians))
+                .asPointTransformer(),
+          )
+          .normalized();
+
+  /// A heptagon shape (7-sided regular polygon).
+  static final heptagon =
+      RoundedPolygon.fromVerticesNum(7, rounding: _cornerRound20)
+          .transformed(
+            (Matrix4.identity()..rotateZ(_negative90Radians))
+                .asPointTransformer(),
+          )
+          .normalized();
+
+  /// An octagon shape (8-sided regular polygon).
+  static final octagon =
+      RoundedPolygon.fromVerticesNum(8, rounding: _cornerRound20)
+          .transformed(
+            (Matrix4.identity()..rotateZ(-math.pi / 8)).asPointTransformer(),
+          )
+          .normalized();
+
   /// A sunny shape.
   static final sunny = RoundedPolygon.star(
     numVerticesPerRadius: 8,
@@ -261,6 +287,39 @@ abstract final class MaterialShapes {
     ],
     8,
   ).normalized();
+
+  /// A 4-point star shape.
+  static final star4Point = RoundedPolygon.star(
+    numVerticesPerRadius: 4,
+    innerRadius: 0.4,
+    rounding: _cornerRound20,
+  )
+      .transformed(
+        (Matrix4.identity()..rotateZ(_negative45Radians)).asPointTransformer(),
+      )
+      .normalized();
+
+  /// A 5-point star shape.
+  static final star5Point = RoundedPolygon.star(
+    numVerticesPerRadius: 5,
+    innerRadius: 0.45,
+    rounding: _cornerRound15,
+  )
+      .transformed(
+        (Matrix4.identity()..rotateZ(_negative90Radians)).asPointTransformer(),
+      )
+      .normalized();
+
+  /// A 6-point star shape.
+  static final star6Point = RoundedPolygon.star(
+    numVerticesPerRadius: 6,
+    innerRadius: 0.5,
+    rounding: _cornerRound15,
+  )
+      .transformed(
+        (Matrix4.identity()..rotateZ(_negative90Radians)).asPointTransformer(),
+      )
+      .normalized();
 
   /// A 4-sided cookie shape.
   static final cookie4Sided = _customPolygon(
@@ -603,6 +662,107 @@ abstract final class MaterialShapes {
     mirroring: true,
   ).normalized();
 
+  /// A crescent moon shape.
+  static final crescent = _customPolygon(
+    [
+      const _PointNRound(
+        Point(0.15, 0.5),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.35, 0.05),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.85, 0.05),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.65, 0.5),
+        CornerRounding(radius: 0.8),
+      ),
+      const _PointNRound(
+        Point(0.85, 0.95),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.35, 0.95),
+        CornerRounding(radius: 1),
+      ),
+    ],
+    1,
+  ).normalized();
+
+  /// A teardrop shape.
+  static final teardrop = _customPolygon(
+    [
+      const _PointNRound(
+        Point(0.5, 0.0),
+        CornerRounding(radius: 0.05, smoothing: 1),
+      ),
+      const _PointNRound(
+        Point(1.0, 0.65),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.5, 1.0),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.0, 0.65),
+        CornerRounding(radius: 1),
+      ),
+    ],
+    1,
+  ).normalized();
+
+  /// A U curve shape (horseshoe-like).
+  static final uCurve = _customPolygon(
+    [
+      const _PointNRound(
+        Point(0.0, 0.0),
+        CornerRounding(radius: 0.15),
+      ),
+      const _PointNRound(
+        Point(0.25, 0.0),
+        CornerRounding(radius: 0.15),
+      ),
+      const _PointNRound(
+        Point(0.25, 0.6),
+        CornerRounding(radius: 0.8),
+      ),
+      const _PointNRound(
+        Point(0.5, 0.75),
+        CornerRounding(radius: 0.8),
+      ),
+      const _PointNRound(
+        Point(0.75, 0.6),
+        CornerRounding(radius: 0.8),
+      ),
+      const _PointNRound(
+        Point(0.75, 0.0),
+        CornerRounding(radius: 0.15),
+      ),
+      const _PointNRound(
+        Point(1.0, 0.0),
+        CornerRounding(radius: 0.15),
+      ),
+      const _PointNRound(
+        Point(1.0, 0.55),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.5, 1.0),
+        CornerRounding(radius: 1),
+      ),
+      const _PointNRound(
+        Point(0.0, 0.55),
+        CornerRounding(radius: 1),
+      ),
+    ],
+    1,
+  ).normalized();
+
   /// A list of all available shapes.
   static final all = UnmodifiableListView(
     <RoundedPolygon>[
@@ -620,8 +780,14 @@ abstract final class MaterialShapes {
       MaterialShapes.clamShell,
       MaterialShapes.pentagon,
       MaterialShapes.gem,
+      MaterialShapes.hexagon,
+      MaterialShapes.heptagon,
+      MaterialShapes.octagon,
       MaterialShapes.sunny,
       MaterialShapes.verySunny,
+      MaterialShapes.star4Point,
+      MaterialShapes.star5Point,
+      MaterialShapes.star6Point,
       MaterialShapes.cookie4Sided,
       MaterialShapes.cookie6Sided,
       MaterialShapes.cookie7Sided,
@@ -641,6 +807,9 @@ abstract final class MaterialShapes {
       MaterialShapes.pixelTriangle,
       MaterialShapes.bun,
       MaterialShapes.heart,
+      MaterialShapes.crescent,
+      MaterialShapes.teardrop,
+      MaterialShapes.uCurve,
     ],
   );
 

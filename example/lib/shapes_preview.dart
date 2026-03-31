@@ -29,8 +29,14 @@ class _ShapesPreviewState extends State<ShapesPreview>
     (shape: MaterialShapes.clamShell, title: 'Clammshell'),
     (shape: MaterialShapes.pentagon, title: 'Pentagon'),
     (shape: MaterialShapes.gem, title: 'Gem'),
+    (shape: MaterialShapes.hexagon, title: 'Hexagon'),
+    (shape: MaterialShapes.heptagon, title: 'Heptagon'),
+    (shape: MaterialShapes.octagon, title: 'Octagon'),
     (shape: MaterialShapes.verySunny, title: 'Very sunny'),
     (shape: MaterialShapes.sunny, title: 'Sunny'),
+    (shape: MaterialShapes.star4Point, title: '4-point star'),
+    (shape: MaterialShapes.star5Point, title: '5-point star'),
+    (shape: MaterialShapes.star6Point, title: '6-point star'),
     (shape: MaterialShapes.cookie4Sided, title: '4-sided cookie'),
     (shape: MaterialShapes.cookie6Sided, title: '6-sided cookie'),
     (shape: MaterialShapes.cookie7Sided, title: '8-sided cookie'),
@@ -50,6 +56,9 @@ class _ShapesPreviewState extends State<ShapesPreview>
     (shape: MaterialShapes.pixelTriangle, title: 'Pixel triangle'),
     (shape: MaterialShapes.bun, title: 'Bun'),
     (shape: MaterialShapes.heart, title: 'Heart'),
+    (shape: MaterialShapes.crescent, title: 'Crescent'),
+    (shape: MaterialShapes.teardrop, title: 'Teardrop'),
+    (shape: MaterialShapes.uCurve, title: 'U Curve'),
   ];
 
   late final ValueNotifier<int> _shapeIndex;
